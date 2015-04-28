@@ -21,7 +21,7 @@ $(document).ready(function() {
     window.fbAsyncInit = function() {
 
         FB.init({
-            appId: '1648376878725605', //ID aplicacion en facebook
+            appId: '507608609392055', //ID aplicacion en facebook
             status: true,
             cookie: true,
             xfbml: true,
