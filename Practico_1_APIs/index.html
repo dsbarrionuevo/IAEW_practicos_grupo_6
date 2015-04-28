@@ -1,5 +1,7 @@
 <html>
     <head>
+		<!-- metas -->
+		<meta charset="UTF-8">
         <title>Practicos de APIs - Grupo 6</title>
         <!-- CSS -->
         <link href="css/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
@@ -18,6 +20,26 @@
         <div class="container">
             <div class="row" style="padding-top:10px">
                 <div class="col-sm-12">
+					<!-- panel twitter api -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Uso de API de Twitter
+                        </div>
+                        <div class="panel-body">
+                            <div class="form-inline">
+                                <div class="form-group">
+                                    <label>Ubicación</label>
+                                    <input type="text" class="form-control" id="txtUbicacion" placeholder="Escribe aquí un sitio a buscar">
+                                </div>
+                                <div class="form-group">
+                                    <input type="button" class="btn btn-default" id="btnBuscarUbicacion" value="Buscar">
+                                </div>
+                            </div>
+                            <div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /panel twitter api -->
                     <!-- panel google api -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -26,8 +48,8 @@
                         <div class="panel-body">
                             <div class="form-inline">
                                 <div class="form-group">
-                                    <label>Ubicaci�n</label>
-                                    <input type="text" class="form-control" id="txtUbicacion" placeholder="Escribe aqu� un sitio a buscar">
+                                    <label>Ubicación</label>
+                                    <input type="text" class="form-control" id="txtUbicacion" placeholder="Escribe aquí un sitio a buscar">
                                 </div>
                                 <div class="form-group">
                                     <input type="button" class="btn btn-default" id="btnBuscarUbicacion" value="Buscar">
@@ -45,8 +67,8 @@
                         <div class="panel-body">
                             <div class="form-inline">
                                 <div class="form-group">
-                                    <label>B�squeda</label>
-                                    <input type="text" class="form-control" id="txtBuscarSpotify" placeholder="Escribe aqu� lo que quieras buscar en Spotify">
+                                    <label>Búsqueda</label>
+                                    <input type="text" class="form-control" id="txtBuscarSpotify" placeholder="Escribe aquí lo que quieras buscar en Spotify">
                                     <select class="form-control" id="slcTipoSpotify">
                                         <option value="all">
                                             Todo
