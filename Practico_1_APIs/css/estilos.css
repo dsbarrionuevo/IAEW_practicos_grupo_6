@@ -35,3 +35,16 @@
 .resultadoBusquedaSpotify a{
 	color:#000;
 }
+#datos_facebook{
+    width: 80%;
+}
+
+#titulo_facebook_lista, .labels_datos{
+    font-weight: bold;
+}
+#titulo_facebook_lista{
+    size: 30px;
+}
+#facebook-sesion_iniciada strong, img{
+    display: block;    
+}

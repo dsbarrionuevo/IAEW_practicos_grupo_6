@@ -1,95 +1,115 @@
 <html>
-	<head>
-		<title>Practicos de APIs - Grupo 6</title>
-		<!-- CSS -->
-		<link href="css/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
-		<link href="css/estilos.css" type="text/css" rel="stylesheet"/>
-		<!-- JS -->
-		<script type="text/javascript" src="js/lib/jquery.js"></script>
-		<script type="text/javascript" src="css/bootstrap/js/bootstrap.min..js"></script>
-		<script type="text/javascript" src="js/api_google.js"></script>
-		<script type="text/javascript" src="js/api_spotify.js"></script>
-		<!-- Google Maps API -->
-		<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false"></script>
-	</head>
-	<body>
-		<div class="container">
-			<div class="row" style="padding-top:10px">
-				<div class="col-sm-12">
-					<!-- panel google api -->
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							Uso de Google Maps
-						</div>
-						<div class="panel-body">
-							<div class="form-inline">
-								<div class="form-group">
-									<label>Ubicación</label>
-									<input type="text" class="form-control" id="txtUbicacion" placeholder="Escribe aquí un sitio a buscar">
-								</div>
-								<div class="form-group">
-									<input type="button" class="btn btn-default" id="btnBuscarUbicacion" value="Buscar">
-								</div>
-							</div>
-							<div id="contenedorMapa"></div>	
-						</div>
-					</div>
-					<!-- /panel google api -->
-					<!-- panel spotify api -->
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							Uso de la API de Spotify
-						</div>
-						<div class="panel-body">
-							<div class="form-inline">
-								<div class="form-group">
-									<label>Búsqueda</label>
-									<input type="text" class="form-control" id="txtBuscarSpotify" placeholder="Escribe aquí lo que quieras buscar en Spotify">
-									<select class="form-control" id="slcTipoSpotify">
-										<option value="all">
-											Todo
-										</option>
-										<option value="artist">
-											Artista
-										</option>
-										<option value="track">
-											Canción
-										</option>
-										<option value="album">
-											Album
-										</option>
-										<option value="playlist">
-											Playlist
-										</option>
-									</select>
-								</div>
-								<div class="form-group">
-									<input type="button" class="btn btn-default" id="btnBuscarSpotify" value="Buscar">
-								</div>
-							</div>
-							<div id="contenedorResultadosSpotify">
-								<div >
-									<div class="col-sm-2 resultadoBusquedaSpotify" id="baseResultadoBusquedaSpotify">
-										<table>
-											<tr>
-												<td class="name">
-													<a href="#"></a>
-												</td>
-											</tr>
-											<tr>
-												<td class="image">
-													<img src=""/>
-												</td>
-											</tr>
-										</table>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<!-- /panel spotify api -->
-				</div>
-			</div>
-		</div>
-	</body>
+    <head>
+        <title>Practicos de APIs - Grupo 6</title>
+        <!-- CSS -->
+        <link href="css/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
+        <link href="css/estilos.css" type="text/css" rel="stylesheet"/>
+        <!-- JS -->
+        <script type="text/javascript" src="js/lib/jquery.js"></script>
+        <script type="text/javascript" src="css/bootstrap/js/bootstrap.min..js"></script>
+        <script type="text/javascript" src="js/api_google.js"></script>
+        <script type="text/javascript" src="js/api_spotify.js"></script>
+        <script type="text/javascript" src="js/api_facebook.js"></script>
+        
+        <!-- Google Maps API -->
+        <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row" style="padding-top:10px">
+                <div class="col-sm-12">
+                    <!-- panel google api -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Uso de Google Maps
+                        </div>
+                        <div class="panel-body">
+                            <div class="form-inline">
+                                <div class="form-group">
+                                    <label>Ubicaciï¿½n</label>
+                                    <input type="text" class="form-control" id="txtUbicacion" placeholder="Escribe aquï¿½ un sitio a buscar">
+                                </div>
+                                <div class="form-group">
+                                    <input type="button" class="btn btn-default" id="btnBuscarUbicacion" value="Buscar">
+                                </div>
+                            </div>
+                            <div id="contenedorMapa"></div>	
+                        </div>
+                    </div>
+                    <!-- /panel google api -->
+                    <!-- panel spotify api -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Uso de la API de Spotify
+                        </div>
+                        <div class="panel-body">
+                            <div class="form-inline">
+                                <div class="form-group">
+                                    <label>Bï¿½squeda</label>
+                                    <input type="text" class="form-control" id="txtBuscarSpotify" placeholder="Escribe aquï¿½ lo que quieras buscar en Spotify">
+                                    <select class="form-control" id="slcTipoSpotify">
+                                        <option value="all">
+                                            Todo
+                                        </option>
+                                        <option value="artist">
+                                            Artista
+                                        </option>
+                                        <option value="track">
+                                            Canciï¿½n
+                                        </option>
+                                        <option value="album">
+                                            Album
+                                        </option>
+                                        <option value="playlist">
+                                            Playlist
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <input type="button" class="btn btn-default" id="btnBuscarSpotify" value="Buscar">
+                                </div>
+                            </div>
+                            <div id="contenedorResultadosSpotify">
+                                <div >
+                                    <div class="col-sm-2 resultadoBusquedaSpotify" id="baseResultadoBusquedaSpotify">
+                                        <table>
+                                            <tr>
+                                                <td class="name">
+                                                    <a href="#"></a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="image">
+                                                    <img src=""/>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /panel spotify api -->
+
+                    <!-- panel facebook api -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Uso de Facebook API
+                        </div>
+                        <div class="panel-body">
+                            <div class="form-inline">
+                                <div class="form-group" id="datos_facebook">
+                                    <p id="titulo_facebook_lista" class="text-primary text-center">Datos facebook</p>                      
+                                </div>
+                                <div class="form-group" id="sesion_inicio">
+                                    <a href="#" class="btn btn-primary btn-lg btn-block" id="btn_iniciar_sesion">Inciar SesiÃ³n en Facebook</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /panel facebook api-->
+                </div>
+            </div>
+        </div>
+    </body>
 </html>
