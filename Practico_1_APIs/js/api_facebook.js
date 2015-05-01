@@ -1,4 +1,6 @@
 $(document).ready(function() {
+
+
 // CArgo la API - Facebook sdk
     (function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
@@ -6,11 +8,11 @@ $(document).ready(function() {
             return;
         js = d.createElement(s);
         js.id = id;
-        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3";
+        js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.3&appID=1648376878725605";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
 
-    var post = '<div class="fb-post"  data-width="500" id="id_fb_post" data-href="https://www.facebook.com/permalink.php?story_fbid=943094279044538&amp;id=362311790456126">' +
+    var post = '<div class="fb-post"  data-width="500" data-href="https://www.facebook.com/permalink.php?story_fbid=943094279044538&amp;id=362311790456126">' +
             ' <div class="fb-xfbml-parse-ignore">' +
             '<blockquote cite="https://www.facebook.com/permalink.php?story_fbid=943094279044538&amp;id=362311790456126">' +
             '<p>Apuntes en 2 minutos. s&#xed;ntesisi informativa de la #UNCHoy:- Se presenta en la universidad el Programa &#x201c;Ciencia de...</p>' +
@@ -23,7 +25,7 @@ $(document).ready(function() {
             '</div>';
 
     console.log("antes");
-    //$("#fb-root").after(post);
+    $("#fb-root").after(post);
     console.log("despues");
 
 
