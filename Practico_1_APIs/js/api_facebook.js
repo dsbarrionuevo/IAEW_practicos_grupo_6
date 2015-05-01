@@ -6,134 +6,55 @@ $(document).ready(function() {
             return;
         js = d.createElement(s);
         js.id = id;
-        js.src = "//connect.facebook.net/es_LA/sdk.js";
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3";
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
-    var permisos = 'email, user_friends, user_online_presence';
-    var btn_iniciar_sesion = ' <a href="#" class="btn btn-primary btn-lg btn-block" id="btn_iniciar_sesion">Inciar Sesión en Facebook</a>';
-    var div_session_iniciada = "<div id='facebook-sesion_iniciada'>" +
-            "<strong></strong>" +
-            "<img>" +
-            "<a href='#' class='btn btn-danger btn-lg btn-block' id='btn_cerrar_sesion'>Cerrar sesión</a>" +
-            "</div>" +
-            "<div class='form-group'>" +
-            "</div>";
-    window.fbAsyncInit = function() {
 
-        FB.init({
-            appId: '507608609392055', //ID aplicacion en facebook
-            status: true,
-            cookie: true,
-            xfbml: true,
-            version: 'v2.3'
-        });
-        FB.getLoginStatus(function(sesion_facebook_actual) {
-            cambiar_Estado(sesion_facebook_actual, function() {
-            });
-        });
-    };
-    var cambiar_Estado = function(sesion_facebook_actual, callback) {
-        console.log(sesion_facebook_actual);
-        if (sesion_facebook_actual.status === 'connected') {
-            get_datos_facebook();
-            get_amigos_facebook();
-        } else {
-            callback(false);
-        }
-    };
-    var verificar_estado_inicio_sesion = function(callback) {
-        FB.getLoginStatus(function(sesion_facebook_actual) {
-            callback(sesion_facebook_actual);
-        });
-    };
-    var get_datos_facebook = function() {
-        FB.api('/me', function(sesion_facebook_actual) { //me para la session iniciada en facebook
-            $('#btn_iniciar_sesion').after(div_session_iniciada);
-            $('#btn_iniciar_sesion').remove();
-            $('#facebook-sesion_iniciada strong').text("Bienvenido: " + sesion_facebook_actual.name);
-            $('#facebook-sesion_iniciada img').attr('src', 'http://graph.facebook.com/' + sesion_facebook_actual.id + '/picture?type=large');
-        });
-    };
-    var get_amigos_facebook = function() {
-        var url_data_facebook_json = 'https://graph.facebook.com/me?fields=id,cover,email,first_name,gender,last_name,link,name,friends.limit%2810%29&access_token=' + FB.getAccessToken();
-        $.get(url_data_facebook_json, function(resultado) {
-            console.log(resultado);
-            var datos = ' <ul id=lista_datos>';
-            if (resultado.name !== undefined) {
-                datos += '<li class="list-group-item list-group-item-info">' + '<label class="labels_datos">Nombre:</label>' + resultado.name + '</li>';
-            }
-            if (resultado.id !== undefined) {
-                datos += '<li class="list-group-item list-group-item-info">' + '<label class="labels_datos">Id Usuario:</label>' + resultado.id + '</li>';
-            }
-            if (resultado.gender !== undefined) {
-                var genero = '';
-                if (resultado.gender === 'female') {
-                    genero = 'femenino';
-                } else {
-                    genero = 'masculino';
-                }
-                datos += '<li class="list-group-item list-group-item-info">' + '<label class="labels_datos">Sexo:</label>' + genero + '</li>';
-            }
-            if (resultado.email !== undefined) {
-                datos += '<li class="list-group-item list-group-item-info">' + '<label class="labels_datos">Email:</label>' + resultado.email + '</li>';
-            }
-            if (resultado.cover !== undefined) {
-                datos += '<li class="list-group-item list-group-item-info">' + '<label class="labels_datos">Portada:</label> <img src="' + resultado.cover.source + '" class="img-circle"></img></li>';
-            }
-            if (resultado.link !== undefined) {
-                datos += '<li class="list-group-item list-group-item-info">' + '<a href=' + resultado.link + ' class="btn btn-success btn-xs">Ir a Perfil</a>' + '</li>';
-            }
-            if (resultado.friends !== undefined) {
-                datos += '<li class="list-group-item list-group-item-info">' + '<label class="labels_datos">Cantidad Amigos:</label>' + resultado.friends.summary.total_count + '</li>';
-            }
-            console.log(datos);
-            datos += '</ul>';
-            $('#datos_facebook').append(datos);
-            $('#lista_datos').css("text-align", 'center');
-            $('.labels_datos').css("margin-right", '5px');
-            $('.img-circle').css("width", '100%');
-        });
-        /*FB.api('/me?fields=id,cover,email,first_name,gender,last_name,link,name,friends.limit(10)', function(sesion_facebook_actual) {
-         var amigos = sesion_facebook_actual.data;
-         console.log(amigos);
-         });*/
+    var post = '<div class="fb-post"  data-width="500" id="id_fb_post" data-href="https://www.facebook.com/permalink.php?story_fbid=943094279044538&amp;id=362311790456126">' +
+            ' <div class="fb-xfbml-parse-ignore">' +
+            '<blockquote cite="https://www.facebook.com/permalink.php?story_fbid=943094279044538&amp;id=362311790456126">' +
+            '<p>Apuntes en 2 minutos. s&#xed;ntesisi informativa de la #UNCHoy:- Se presenta en la universidad el Programa &#x201c;Ciencia de...</p>' +
+            'Posted by ' +
+            '<a href="https://www.facebook.com/pages/Universidad-Nacional-de-C%C3%B3rdoba-Oficial/362311790456126">' +
+            'Universidad Nacional de Córdoba (Oficial)</a> on ' +
+            '<a href="https://www.facebook.com/permalink.php?story_fbid=943094279044538&amp;id=362311790456126">Jueves, 30 de abril de 2015</a>' +
+            '</blockquote>' +
+            '</div>' +
+            '</div>';
 
-    };
-    var iniciar_sesion_facebook = function() {
-        verificar_estado_inicio_sesion(function(data) {
-            if (data.status !== 'connected') {
-                FB.login(function(sesion_facebook_actual) {
-                    if (sesion_facebook_actual.status === 'connected')
-                    {
-                        get_datos_facebook();
-                        get_amigos_facebook();
-                    }
-                }, {scope: permisos});
-            }
-        });
-    };
-    var facebookLogout = function() {
-        verificar_estado_inicio_sesion(function(data) {
-            if (data.status === 'connected') {
-                FB.logout(function(sesion_facebook_actual) {
-                    $('#facebook-sesion_iniciada').before(btn_iniciar_sesion);
-                    $('#facebook-sesion_iniciada').remove();
-                    $('#datos_facebook').remove();
-                });
-            }
-        });
-    };
-    $(document).on('click', '#btn_iniciar_sesion', function(e) {
-        e.preventDefault();
-        iniciar_sesion_facebook();
+    console.log("antes");
+    $("#fb-root").after(post);
+    console.log("despues");
+
+
+    var url = "http://graph.facebook.com/362311790456126";
+
+    $.getJSON(url, function(resultado) {
+        var resultado_html = '<div id="universidad_info"> <ul class="list-group">';
+        var tag_lista_inicio = '<li class="list-group-item list-group-item-info">';
+        var tag_label_inicio = '<label class="labels">';
+        if (resultado.name !== undefined)
+            resultado_html += tag_lista_inicio + tag_label_inicio + 'Nombre: </label>' + resultado.name + '</li>';
+        if (resultado.location.city !== undefined && resultado.location.country !== undefined)
+            resultado_html += tag_lista_inicio + tag_label_inicio + 'Ubicacion: </label>' + resultado.location.city + ', ' + resultado.location.country + '</li>';
+
+        if (resultado.category !== undefined)
+            resultado_html += tag_lista_inicio + tag_label_inicio + 'Categoría: </label>' + resultado.category + '</li>';
+        //if (resultado.description !== undefined)
+        //  resultado_html += '<li class="list-group-item list-group-item-info"> <label class="labels">Descripción: </label>' + resultado.description + '</li>';
+        if (resultado.likes !== undefined)
+            resultado_html += tag_lista_inicio + tag_label_inicio + 'Likes: </label>' + resultado.likes + '</li>';
+        if (resultado.link !== undefined)
+            resultado_html += tag_lista_inicio + '<a class="btn btn-link btn-md active" href="' + resultado.link + '">Visitar perfil</a> </li>';
+        //if (resultado.website !== undefined)
+        //  resultado_html += '<li class="list-group-item list-group-item-info"> <label class="labels">Pagina Web: </label> <a class="btn btn-link btn-sm active" href="' + resultado.website + '">'+resultado.website+'</a> </li>';
+        if (resultado.phone !== undefined)
+            resultado_html += tag_lista_inicio + tag_label_inicio + 'Tel.: </label>' + resultado.phone + '</li>';
+        resultado_html += '</ul></div>';
+        console.log(resultado_html);
+        $("#id_fb_post").after(resultado_html);
     });
-    $(document).on('click', '#btn_cerrar_sesion', function(e) {
-        e.preventDefault();
-        if (confirm("¿Está seguro?"))
-            facebookLogout();
-        else
-            return false;
-    });
+
 });
 
 

@@ -1,50 +1,56 @@
 *{
-	margin:0;
-	padding:0;
+    margin:0;
+    padding:0;
 }
 #txtUbicacion, #txtBuscarSpotify{
-	width:340px;
+    width:340px;
 }
 #contenedorMapa, #contenedorResultadosSpotify{
-	padding:10px;
-	margin-top:10px;
-	box-sizing: border-box;
-	width:100%;
-	height:480px;
+    padding:10px;
+    margin-top:10px;
+    box-sizing: border-box;
+    width:100%;
+    height:480px;
 }
 #contenedorResultadosSpotify{
-	padding:5px;
+    padding:5px;
 }
 #contenedorResultadosSpotify > div{
-	width:100%;
-	height:460px;
-	overflow-y:scroll;
+    width:100%;
+    height:460px;
+    overflow-y:scroll;
 }
 .resultadoBusquedaSpotify:first-child{
-	display:none;
+    display:none;
 }
 .resultadoBusquedaSpotify{
-	box-shadow:1px 1px 2px rgba(0,0,0,0.4), inset 0px 1px 4px 1px rgba(255,255,255,0.5), inset 0px -1px 2px rgba(0,0,0,0.2);
-	background-image: linear-gradient(to top, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.0) 90%);
-	border:1px solid rgba(0,0,0,0.4);
-	border-radius:5px;
-	padding:10px;
-	margin:5px;
-	height:160px;
+    box-shadow:1px 1px 2px rgba(0,0,0,0.4), inset 0px 1px 4px 1px rgba(255,255,255,0.5), inset 0px -1px 2px rgba(0,0,0,0.2);
+    background-image: linear-gradient(to top, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.0) 90%);
+    border:1px solid rgba(0,0,0,0.4);
+    border-radius:5px;
+    padding:10px;
+    margin:5px;
+    height:160px;
 }
 .resultadoBusquedaSpotify a{
-	color:#000;
-}
-#datos_facebook{
-    width: 80%;
+    color:#000;
 }
 
-#titulo_facebook_lista, .labels_datos{
+#titulo_facebook_lista{    
+    font-size: 2em;
+}
+#titulo_facebook_lista, .labels{
     font-weight: bold;
+    padding: 2px;
 }
-#titulo_facebook_lista{
-    size: 30px;
+#datos_facebook{
+    display: flex;
+    alig-items: stretch;
 }
-#facebook-sesion_iniciada strong, img{
-    display: block;    
+
+#universidad_info{
+    width: 500px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
+

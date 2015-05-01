@@ -1,7 +1,7 @@
 <html>
     <head>
-		<!-- metas -->
-		<meta charset="UTF-8">
+        <!-- metas -->
+        <meta charset="UTF-8">
         <title>Practicos de APIs - Grupo 6</title>
         <!-- CSS -->
         <link href="css/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
@@ -12,7 +12,7 @@
         <script type="text/javascript" src="js/api_google.js"></script>
         <script type="text/javascript" src="js/api_spotify.js"></script>
         <script type="text/javascript" src="js/api_facebook.js"></script>
-        
+
         <!-- Google Maps API -->
         <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDY0kkJiTPVd2U7aTOAwhc9ySH6oHxOIYM&sensor=false"></script>
     </head>
@@ -20,26 +20,7 @@
         <div class="container">
             <div class="row" style="padding-top:10px">
                 <div class="col-sm-12">
-					<!-- panel twitter api -->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Uso de API de Twitter
-                        </div>
-                        <div class="panel-body">
-                            <div class="form-inline">
-                                <div class="form-group">
-                                    <label>Ubicación</label>
-                                    <input type="text" class="form-control" id="txtUbicacion" placeholder="Escribe aquí un sitio a buscar">
-                                </div>
-                                <div class="form-group">
-                                    <input type="button" class="btn btn-default" id="btnBuscarUbicacion" value="Buscar">
-                                </div>
-                            </div>
-                            <div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /panel twitter api -->
+
                     <!-- panel google api -->
                     <div class="panel panel-default">
                         <div class="panel-heading">
@@ -120,12 +101,23 @@
                         </div>
                         <div class="panel-body">
                             <div class="form-inline">
-                                <div class="form-group" id="datos_facebook">
-                                    <p id="titulo_facebook_lista" class="text-primary text-center">Datos facebook</p>                      
+                                <p id="titulo_facebook_lista" class="text-primary text-center">Facebook</p> 
+                                <div class="form-group" id="datos_facebook">                                    
+                                    <div id="fb-root"></div>
                                 </div>
-                                <div class="form-group" id="sesion_inicio">
-                                    <a href="#" class="btn btn-primary btn-lg btn-block" id="btn_iniciar_sesion">Inciar Sesión en Facebook</a>
-                                </div>
+                                
+                                <!--<div id="fb-root"></div>
+                                <div class="fb-post"  data-width="500" id="id_fb_post" data-href="https://www.facebook.com/permalink.php?story_fbid=943094279044538&amp;id=362311790456126">
+                                    <div class="fb-xfbml-parse-ignore">
+                                        <blockquote cite="https://www.facebook.com/permalink.php?story_fbid=943094279044538&amp;id=362311790456126">
+                                            <p>Apuntes en 2 minutos. s&#xed;ntesisi informativa de la #UNCHoy:- Se presenta en la universidad el Programa &#x201c;Ciencia de...</p>
+                                            Posted by 
+                                            <a href="https://www.facebook.com/pages/Universidad-Nacional-de-C%C3%B3rdoba-Oficial/362311790456126">
+                                                Universidad Nacional de Córdoba (Oficial)</a> on 
+                                            <a href="https://www.facebook.com/permalink.php?story_fbid=943094279044538&amp;id=362311790456126">Jueves, 30 de abril de 2015</a>
+                                        </blockquote>
+                                    </div>
+                                </div>-->
                             </div>
                         </div>
                     </div>
@@ -137,7 +129,15 @@
                         </div>
                         <div class="panel-body">
                             <a class="twitter-timeline" href="https://twitter.com/AcademiaFRC_UTN" data-widget-id="593156363150336000">Tweets por el @AcademiaFRC_UTN.</a>
-                            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+                            <script>!function(d, s, id) {
+                                    var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+                                    if (!d.getElementById(id)) {
+                                        js = d.createElement(s);
+                                        js.id = id;
+                                        js.src = p + "://platform.twitter.com/widgets.js";
+                                        fjs.parentNode.insertBefore(js, fjs);
+                                    }
+                                }(document, "script", "twitter-wjs");</script>
 
                         </div>
                         <div class="">
