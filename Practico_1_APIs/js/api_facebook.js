@@ -23,7 +23,7 @@ $(document).ready(function() {
             '</div>';
 
     console.log("antes");
-    $("#fb-root").after(post);
+    //$("#fb-root").after(post);
     console.log("despues");
 
 
@@ -52,7 +52,7 @@ $(document).ready(function() {
             resultado_html += tag_lista_inicio + tag_label_inicio + 'Tel.: </label>' + resultado.phone + '</li>';
         resultado_html += '</ul></div>';
         console.log(resultado_html);
-        $("#id_fb_post").after(resultado_html);
+        $(".fb-post").after(resultado_html);
     });
 
 });
